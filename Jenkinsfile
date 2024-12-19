@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     // Save files to be used later
-                    stash name: 'buildArtifacts', includes: '**/*.jar'
+                    stash name: 'buildArtifacts', includes: '**/*.py'
                 }
             }
         }
