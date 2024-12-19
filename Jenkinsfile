@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                lock('my-resource') {
-                    echo 'Using the locked resource'
-                    // Actions that require exclusive access to a resource
+                timeout(time: 30, unit: 'MINUTES') {
+                    echo 'Building...'
+                    // Simulate a long-running task
                 }
             }
         }
