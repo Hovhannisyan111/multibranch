@@ -3,13 +3,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                timeout(time: 10, unit: 'SECONDS') {
-                    echo 'Building...'
-					sleep(time: 15, unit: "SECONDS")
-                    // Simulate a long-running task
+                script {
+                    // Save files to be used later
+                    stash name: 'buildArtifacts', includes: '**/*.jar'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    // Retrieve the saved files
+                    unstash 'buildArtifacts'
+                    echo 'Deploying artifacts'
                 }
             }
         }
     }
 }
-
