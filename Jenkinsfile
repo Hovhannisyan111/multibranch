@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                timeout(time: 30, unit: 'MINUTES') {
+                timeout(time: 10, unit: 'SECONDS') {
                     echo 'Building...'
-					sleep(time: 35, unit: "SECONDS")
+					sleep(time: 15, unit: "SECONDS")
                     // Simulate a long-running task
                 }
             }
